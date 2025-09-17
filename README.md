@@ -51,10 +51,9 @@ conda activate gralgobench
 pip install -r requirements.txt
 ```
 
-### 2. Data Preparation
-Place datasets under:
+### 2. Data Generation
 ```
-/path/to/GrAlgoBench/data_generation/dataset/
+python ./data_generation/build_dataset.py
 ```
 
 Datasets are organized as:
@@ -69,7 +68,7 @@ dataset/
 ### 3. Run Inference
 Single-task example:
 ```bash
-python Inference/infer_open_large_graph.py \
+python Inference/infer_open.py \
     --LLM Qwen3-8B \
     --task MST \
     --difficulty medium \
@@ -79,27 +78,32 @@ python Inference/infer_open_large_graph.py \
 
 Batch execution via script:
 ```bash
-bash scripts/run_all.sh
+bash scripts/infer_open.sh
 ```
 
-### 4. Results
-Outputs are stored under:
-```
-/path/to/GrAlgoBench/Inference/final_results_{date}/{LLM}/
-```
 
-Each run generates a JSON file:
-```
-MST-medium.json
-MKC-easy.json
-...
-```
+### 4. 🔍 Error Analysis
 
-### 5. Error Analysis
-```bash
-python error_analysis/error_analysis.py \
-    --task MST \
-    --llm o1m \
-    --response_generated_from_what_model Qwen3-8B
-```
+To analyze model errors, follow these steps:
+
+1. **Reformat raw responses**  
+   This step parses and normalizes model outputs into a consistent structure:  
+
+   ```bash
+   python error_analysis/reformat.py
+   ```
+
+2. **Run the error analysis script**  
+   Specify the task, evaluation model, and the model that generated the responses:  
+
+   ```bash
+   python error_analysis/error_analysis.py \
+       --task MST \
+       --llm gpt5_mini \
+       --response_generated_from_what_model Qwen3-8B
+   ```
+
+---
+
+
 
