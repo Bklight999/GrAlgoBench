@@ -21,7 +21,9 @@ Through experiments on **nine tasks across three categories**, we reveal critica
 Together, these findings highlight **graph algorithm problems** as a **rigorous, multidimensional, and application-relevant testbed**, exposing the limitations of today’s LRMs and guiding future progress in reasoning research.  
 
 <p align="center">
-  <a href="main_graph.pdf">📄 View GrAlgoBench Overview (PDF)</a>
+
+<img src="overview.png" alt="GrAlgoBench Overview" width="600">
+
 </p>
 ---
 
