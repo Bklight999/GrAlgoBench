@@ -22,10 +22,10 @@ Together, these findings highlight **graph algorithm problems** as a **rigorous,
 
 <p align="center">
 
-<img src="overview.png" alt="GrAlgoBench Overview" width="600">
+<img src="overview.png" alt="GrAlgoBench Overview" width="900">
 
 </p>
----
+
 
 ## 📂 Project Structure
 
