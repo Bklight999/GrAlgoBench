@@ -2,6 +2,9 @@
 
 # GrAlgoBench
 
+[![arXiv](https://img.shields.io/badge/arXiv-2509.12345-b31b1b.svg)](https://arxiv.org/abs/2509.12345)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Datasets-yellow.svg)](https://huggingface.co/datasets/GrAlgoBench)
+
 Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused primarily on mathematics, programming, or common-sense reasoning—remain limited by **poor difficulty control**, **ambiguous evaluation**, and a **narrow coverage of reasoning paradigms**.  
 
 **GrAlgoBench** introduces a new benchmark centered on **graph algorithm problems** to evaluate the reasoning ability of LRMs. Compared with prior benchmarks, graph tasks offer several unique advantages:  
