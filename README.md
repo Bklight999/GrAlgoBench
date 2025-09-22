@@ -2,20 +2,23 @@
 
 # GrAlgoBench
 
+Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused on mathematics, programming, or common-sense reasoning—suffer from **poor long-context evaluation**, **weak difficulty control**, **ambiguous answers**, and **narrow coverage of reasoning paradigms**.
 
-Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused on mathematics, programming, or common-sense reasoning—suffer from poor long-context evaluation, weak difficulty control, ambiguous answers, and narrow coverage of reasoning paradigms.
-GrAlgoBench introduces a benchmark of graph algorithm problems to evaluate LRMs. Graph tasks naturally provide:
-✨ Why GrAlgoBench
-•	Effective long-context reasoning → graph descriptions induce long inputs, testing context scalability.
-•	Scalable difficulty control → complexity grows smoothly with graph size (8–160 nodes).
-•	Standardized evaluation → outputs are integers/nodes/edges, enabling exact and programmatic checking.
-•	Diverse reasoning paradigms → tasks span Enumeration, Exploration, and Intuition, mapping to brute-force, search, and greedy paradigms.
-📊 Key Findings
-Experiments on nine tasks across three categories uncover two major weaknesses of current LRMs:
-1.	Performance collapse under long contexts → accuracy drops sharply as graphs or text length grow, due to step-by-step execution errors, weak memory, and redundant reasoning.
-2.	Ineffective self-verification → models often engage in verbose self-checking that inflates reasoning traces but rarely improves correctness, becoming the main driver of over-thinking.
-🚀 Takeaway
-By addressing the shortcomings of prior benchmarks, GrAlgoBench establishes graph algorithm problems as a rigorous, multidimensional, and application-relevant testbed for advancing the study of reasoning in LRMs.
+**GrAlgoBench** introduces a benchmark of **graph algorithm problems** to evaluate LRMs. Graph tasks naturally provide:
+
+## ✨ Why GrAlgoBench
+- **Effective long-context reasoning** → graph descriptions induce long inputs, testing context scalability.  
+- **Scalable difficulty control** → complexity grows smoothly with graph size (8–160 nodes).  
+- **Standardized evaluation** → outputs are integers/nodes/edges, enabling exact and programmatic checking.  
+- **Diverse reasoning paradigms** → tasks span **Enumeration**, **Exploration**, and **Intuition**, mapping to brute-force, search, and greedy paradigms.  
+
+## 📊 Key Findings
+Experiments on **nine tasks across three categories** uncover two major weaknesses of current LRMs:
+1. **Performance collapse under long contexts** → accuracy drops sharply as graphs or text length grow, due to step-by-step execution errors, weak memory, and redundant reasoning.  
+2. **Ineffective self-verification** → models often engage in verbose self-checking that inflates reasoning traces but rarely improves correctness, becoming the main driver of over-thinking.  
+
+## 🚀 Takeaway
+By addressing the shortcomings of prior benchmarks, **GrAlgoBench** establishes graph algorithm problems as a rigorous, multidimensional, and application-relevant testbed for advancing the study of reasoning in LRMs.
 
 
 <p align="center">
