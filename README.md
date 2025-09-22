@@ -16,7 +16,6 @@ Experiments on nine tasks across three categories uncover two major weaknesses o
 2.	Ineffective self-verification → models often engage in verbose self-checking that inflates reasoning traces but rarely improves correctness, becoming the main driver of over-thinking.
 🚀 Takeaway
 By addressing the shortcomings of prior benchmarks, GrAlgoBench establishes graph algorithm problems as a rigorous, multidimensional, and application-relevant testbed for advancing the study of reasoning in LRMs.
-<img width="432" height="614" alt="image" src="https://github.com/user-attachments/assets/ad6ba824-b391-4eca-b601-2f94aace4864" />
 
 
 <p align="center">
