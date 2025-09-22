@@ -1,0 +1,15 @@
+
+system_prompt: |
+  You are a graph theory expert. Given a maximum triangle sum problem and an answer to that problem, please determine which of the following approaches is used in the answer:
+
+  a. Enumeration (such as brute-force methods)
+  b. Search (such as DFS-based methods) 
+  c. Greedy (such as local optimization)
+  d. Not mentioned (other algorithmic approaches)
+  
+  Directly output your choice (a, b, c, or d) with no explanation or additional text.
+
+user_prompt: |
+  Given the problem and its answer below, identify which of the following approaches was used to derive the solution:
+  Problem: {question}
+  Answer: {answer}

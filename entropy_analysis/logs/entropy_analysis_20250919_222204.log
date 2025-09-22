@@ -1,0 +1,23 @@
+===============================================
+Entropy Analysis Tool
+===============================================
+Usage: ./entropy_analysis/run_entropy_analysis.sh <mode> [GPU_IDS] [additional_args...]
+
+Modes:
+  infer     - Generate logits output from model inference
+  analyze   - Analyze token entropy from logits files
+  wordcloud - Generate word clouds from analysis results
+
+Parameters:
+  GPU_IDS   - GPU device IDs (default: 6,7)
+
+Examples:
+  # Infer logits with specific model and task
+  ./entropy_analysis/run_entropy_analysis.sh infer 0,1 --LLM Qwen3-32B --task MaxDegree --difficulty easy
+
+  # Analyze entropy with custom parameters
+  ./entropy_analysis/run_entropy_analysis.sh analyze 0,1 --min_freq 50000 --top_k 200
+
+  # Generate wordclouds
+  ./entropy_analysis/run_entropy_analysis.sh wordcloud 0,1
+===============================================

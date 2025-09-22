@@ -5,21 +5,23 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2509.12345-b31b1b.svg)](https://arxiv.org/abs/2509.12345)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Datasets-yellow.svg)](https://huggingface.co/datasets/GrAlgoBench)
 
-Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused on mathematics, programming, or common-sense reasoning—suffer from poor long-context evaluation, weak difficulty control, ambiguous answers, and narrow coverage of reasoning paradigms.
-GrAlgoBench introduces a benchmark of graph algorithm problems to evaluate LRMs. Graph tasks naturally provide:
-✨ Why GrAlgoBench
-•	Effective long-context reasoning → graph descriptions induce long inputs, testing context scalability.
-•	Scalable difficulty control → complexity grows smoothly with graph size (8–160 nodes).
-•	Standardized evaluation → outputs are integers/nodes/edges, enabling exact and programmatic checking.
-•	Diverse reasoning paradigms → tasks span Enumeration, Exploration, and Intuition, mapping to brute-force, search, and greedy paradigms.
-📊 Key Findings
-Experiments on nine tasks across three categories uncover two major weaknesses of current LRMs:
-1.	Performance collapse under long contexts → accuracy drops sharply as graphs or text length grow, due to step-by-step execution errors, weak memory, and redundant reasoning.
-2.	Ineffective self-verification → models often engage in verbose self-checking that inflates reasoning traces but rarely improves correctness, becoming the main driver of over-thinking.
-🚀 Takeaway
-By addressing the shortcomings of prior benchmarks, GrAlgoBench establishes graph algorithm problems as a rigorous, multidimensional, and application-relevant testbed for advancing the study of reasoning in LRMs.
+Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused primarily on mathematics, programming, or common-sense reasoning—remain limited by **poor difficulty control**, **ambiguous evaluation**, and a **narrow coverage of reasoning paradigms**.  
 
+**GrAlgoBench** introduces a new benchmark centered on **graph algorithm problems** to evaluate the reasoning ability of LRMs. Compared with prior benchmarks, graph tasks offer several unique advantages:  
 
+- **Fine-grained reasoning**: emphasize step-by-step logical execution.  
+- **Scalable difficulty control**: adjustable by graph size and topology.  
+- **Standardized evaluation**: objective, programmatic correctness checks.  
+- **Rich reasoning paradigms**: covering enumeration, exploration, and heuristic decision-making.  
+
+Through experiments on **nine tasks across three categories**, we reveal critical weaknesses of current LRMs:  
+
+1. **Poor intuitive reasoning** – models struggle with heuristic-based tasks.  
+2. **Execution errors** – frequent mistakes in step-by-step algorithm execution.  
+3. **Limited memory** – difficulty recalling nodes, edges, and intermediate states.  
+4. **Over-thinking** – excessive but ineffective self-verification attempts.  
+
+Together, these findings highlight **graph algorithm problems** as a **rigorous, multidimensional, and application-relevant testbed**, exposing the limitations of today’s LRMs and guiding future progress in reasoning research.  
 
 <p align="center">
 
@@ -35,9 +37,14 @@ GrAlgoBench/
 ├── data_generation/        # Scripts for dataset construction
 ├── Inference/              # Model inference scripts and configs
 ├── error_analysis/         # Scripts for analyzing model errors
+├── overthinking/           # Overthinking analysis module
+├── label/                  # Response labeling and segmentation
+├── judge/                  # Segment effectiveness judgment
+├── entropy_analysis/       # Token entropy analysis and wordclouds
 ├── logs/                   # Default log directory
 ├── results/                # Saved inference results
 ├── scripts/                # Helper bash scripts for batch running
+├── common_utils.py         # Shared utilities and configurations
 └── README.md               # Documentation
 ```
 
@@ -105,6 +112,72 @@ To analyze model errors, follow these steps:
    ```
 
 ---
+
+## 🔬 Advanced Analysis Tools
+
+GrAlgoBench provides comprehensive analysis tools to understand model behavior and reasoning patterns across multiple dimensions:
+
+### 5. 🧠 Overthinking Analysis
+
+Analyze model self-verification and reasoning redundancy patterns:
+
+```bash
+./overthinking/run_overthinking.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type graph \
+    --batch_size 32
+
+./overthinking/run_overthinking.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type math_competition \
+    --batch_size 16
+```
+
+### 6. 🏷️ Response Labeling
+
+Segment and label model reasoning steps for fine-grained analysis:
+
+```bash
+./label/run_label.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type graph \
+    --batch_size 32
+
+./label/run_label.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type math_competition \
+    --batch_size 16
+```
+
+### 7. ⚖️ Segment Judgment
+
+Evaluate the effectiveness of individual reasoning segments:
+
+```bash
+./judge/run_judge.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type graph \
+    --batch_size 32
+
+./judge/run_judge.sh 0,1 \
+    --LLM Qwen3-32B \
+    --task_type math \
+    --batch_size 16
+```
+
+### 8. 📊 Entropy Analysis
+
+Analyze token-level uncertainty and model confidence patterns:
+
+```bash
+./entropy_analysis/run_entropy_analysis.sh infer 0,1 \
+    --LLM Qwen3-32B --task MaxDegree --difficulty easy
+
+./entropy_analysis/run_entropy_analysis.sh analyze 0,1 \
+    --min_freq 40000 --top_k 100
+
+./entropy_analysis/run_entropy_analysis.sh wordcloud 0,1
+```
 
 
 

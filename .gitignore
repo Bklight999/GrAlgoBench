@@ -1,0 +1,7 @@
+data_generation/real_world_graphs/Wikipedia/
+data_generation/real_world_graphs/academic/
+math_dataset/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
