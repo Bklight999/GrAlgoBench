@@ -5,23 +5,21 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2509.12345-b31b1b.svg)](https://arxiv.org/abs/2509.12345)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Datasets-yellow.svg)](https://huggingface.co/datasets/GrAlgoBench)
 
-Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused primarily on mathematics, programming, or common-sense reasoning—remain limited by **poor difficulty control**, **ambiguous evaluation**, and a **narrow coverage of reasoning paradigms**.  
+Large Reasoning Models (LRMs) have achieved rapid progress, yet existing benchmarks—focused on mathematics, programming, or common-sense reasoning—suffer from poor long-context evaluation, weak difficulty control, ambiguous answers, and narrow coverage of reasoning paradigms.
+GrAlgoBench introduces a benchmark of graph algorithm problems to evaluate LRMs. Graph tasks naturally provide:
+✨ Why GrAlgoBench
+•	Effective long-context reasoning → graph descriptions induce long inputs, testing context scalability.
+•	Scalable difficulty control → complexity grows smoothly with graph size (8–160 nodes).
+•	Standardized evaluation → outputs are integers/nodes/edges, enabling exact and programmatic checking.
+•	Diverse reasoning paradigms → tasks span Enumeration, Exploration, and Intuition, mapping to brute-force, search, and greedy paradigms.
+📊 Key Findings
+Experiments on nine tasks across three categories uncover two major weaknesses of current LRMs:
+1.	Performance collapse under long contexts → accuracy drops sharply as graphs or text length grow, due to step-by-step execution errors, weak memory, and redundant reasoning.
+2.	Ineffective self-verification → models often engage in verbose self-checking that inflates reasoning traces but rarely improves correctness, becoming the main driver of over-thinking.
+🚀 Takeaway
+By addressing the shortcomings of prior benchmarks, GrAlgoBench establishes graph algorithm problems as a rigorous, multidimensional, and application-relevant testbed for advancing the study of reasoning in LRMs.
+<img width="432" height="614" alt="image" src="https://github.com/user-attachments/assets/9b513ce4-bcdb-4faa-aef5-2e4b3bac35f7" />
 
-**GrAlgoBench** introduces a new benchmark centered on **graph algorithm problems** to evaluate the reasoning ability of LRMs. Compared with prior benchmarks, graph tasks offer several unique advantages:  
-
-- **Fine-grained reasoning**: emphasize step-by-step logical execution.  
-- **Scalable difficulty control**: adjustable by graph size and topology.  
-- **Standardized evaluation**: objective, programmatic correctness checks.  
-- **Rich reasoning paradigms**: covering enumeration, exploration, and heuristic decision-making.  
-
-Through experiments on **nine tasks across three categories**, we reveal critical weaknesses of current LRMs:  
-
-1. **Poor intuitive reasoning** – models struggle with heuristic-based tasks.  
-2. **Execution errors** – frequent mistakes in step-by-step algorithm execution.  
-3. **Limited memory** – difficulty recalling nodes, edges, and intermediate states.  
-4. **Over-thinking** – excessive but ineffective self-verification attempts.  
-
-Together, these findings highlight **graph algorithm problems** as a **rigorous, multidimensional, and application-relevant testbed**, exposing the limitations of today’s LRMs and guiding future progress in reasoning research.  
 
 <p align="center">
 
