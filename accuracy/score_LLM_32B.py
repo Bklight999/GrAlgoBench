@@ -5,15 +5,13 @@ import sys
 import re
 from collections import Counter
 import tiktoken
-
-sys.path.append('/hpc2hdd/home/mpeng885/qifanzhang/GLC-Benchmark/data_generation')
 from tasks import *
 from tasks.base import *
 
 
 
 for task_difficulty in ['easy', 'medium', 'hard', 'challenge']:
-    path = '/hpc2hdd/home/mpeng885/qifanzhang/GLC-Benchmark/Inference/final_results_32B/'
+    path = '/path/to/Inference/final_results_32B/'
     merged_responses = {}
 
     # First iterate through folders in path, folder names are model names
@@ -56,7 +54,7 @@ for task_difficulty in ['easy', 'medium', 'hard', 'challenge']:
 
 
 
-    dataset_loc = '/hpc2hdd/home/mpeng885/qifanzhang/GLC-Benchmark/data_generation/dataset'
+    dataset_loc = '/path/to/data_generation/dataset'
     difficulty = task_difficulty
     task_list = list(merged_responses.keys())
     pass_1_accuracy = {}
@@ -113,7 +111,7 @@ for task_difficulty in ['easy', 'medium', 'hard', 'challenge']:
             pass_1_accuracy[task_name][llm] = total_pass_1_score / problem_num
             cons_8_accuracy[task_name][llm] = total_cons_8_score / problem_num
 
-    path = '/hpc2hdd/home/mpeng885/qifanzhang/GLC-Benchmark/accuracy/acc_ckpt/'
+    path = '/path/to/accuracy/acc_ckpt/'
     file_name_pass = path + f'pass_1_accuracy_32B_{task_difficulty}.json'
     file_name_cons = path + f'cons_8_accuracy_32B_{task_difficulty}.json'
 
